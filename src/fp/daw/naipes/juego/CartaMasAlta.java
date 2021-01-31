@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fp.daw.naipes.Mazo;
 import fp.daw.naipes.Naipe;
+import fp.daw.naipes.Rango;
 
 public class CartaMasAlta {
 
@@ -44,7 +45,7 @@ public class CartaMasAlta {
 	}
 	
 	static int valor(Naipe naipe) {
-		return naipe.getRango() == Naipe.A ? Integer.MAX_VALUE : naipe.getRango();
+		return naipe.getRango() == Rango.A ? Integer.MAX_VALUE : naipe.getRango().ordinal();
 	}
 	
 }
