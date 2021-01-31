@@ -19,9 +19,8 @@ public class Mazo {
 	}
 	
 	private void agregarBaraja() {
-		for (Palo p: Palo.values())
-			for (Rango r: Rango.values())
-				naipes.add(Naipe.getNaipe(p, r));
+		for (Naipe n: Naipe.values())
+			naipes.add(n);
 	}
 	
 	public void add(Naipe naipe) {
