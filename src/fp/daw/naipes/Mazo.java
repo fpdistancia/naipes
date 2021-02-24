@@ -3,14 +3,12 @@ package fp.daw.naipes;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Mazo {
+public class Mazo extends ArrayList<Naipe>{
 	
+	private static final long serialVersionUID = 1L;
 	private static Random r = new Random();
 	
-	ArrayList<Naipe> naipes = new ArrayList<>();
-	
 	public Mazo() {
-		agregarBaraja();
 	}
 	
 	public Mazo(int barajas) {
@@ -20,28 +18,21 @@ public class Mazo {
 	
 	private void agregarBaraja() {
 		for (Naipe n: Naipe.values())
-			naipes.add(n);
+			add(n);
 	}
 	
-	public void add(Naipe naipe) {
-		naipes.add(naipe);
-	}
-	
-	public void addAll(Mazo mazo) {
-		naipes.addAll(mazo.naipes);
-		mazo.naipes.clear();
+	public void descartar(Mazo mazo) {
+		mazo.addAll(this);
+		clear();
 	}
 	
 	public Naipe get() {
-		if (naipes.size() == 0)
-			return null;
-		return naipes.size() == 1 ? naipes.get(1) : naipes.get(r.nextInt(naipes.size()));
+		return get(r.nextInt(size()));
 	}
 	
 	public Naipe remove() {
-		if (naipes.size() == 0)
-			return null;
-		return naipes.size() == 1 ? naipes.remove(1) : naipes.remove(r.nextInt(naipes.size()));
+		return remove(r.nextInt(size()));
 	}
 	
 }
+
