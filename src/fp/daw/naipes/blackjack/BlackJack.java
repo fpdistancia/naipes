@@ -29,11 +29,8 @@ public class BlackJack {
 		if (fin)
 			throw new RuntimeException("no se puede pedir");
 		jugador.add(mazo.get());
-		if (jugador.valor() >= 21)
-			fin = true;
-		if (crupier.valor() < 17) {
-			crupier.add(mazo.get());
-		}
+		if (jugador.valor() >= 21) 
+			plantarse();
 	}
 	
 	public void plantarse() {
