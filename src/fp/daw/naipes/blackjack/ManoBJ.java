@@ -51,6 +51,8 @@ public class ManoBJ extends Mazo {
 			}
 			sb.append("= ");
 			sb.append(valor);
+			if (blackjack())
+				sb.append(" (BLACKJACK)");
 		}
 		return sb.toString();
 	}
