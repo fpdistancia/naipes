@@ -19,8 +19,8 @@ public class BlackJack {
 		jugador.descartar(descarte);
 		crupier.descartar(descarte);
 		jugador.add(mazo.remove());
-		jugador.add(mazo.remove());
 		crupier.add(mazo.remove());
+		jugador.add(mazo.remove());
 		crupier.add(mazo.remove());
 		if (jugador.getValor() == 21)
 			plantarse();
@@ -40,7 +40,7 @@ public class BlackJack {
 		fin = true;
 		if (jugador.getValor() <= 21)
 			while (crupier.getValor() < 17)
-				crupier.add(mazo.get());
+				crupier.add(mazo.remove());
 	}
 
 	public boolean finalizado() {
