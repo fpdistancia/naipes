@@ -7,42 +7,38 @@ public class Mazo {
 	
 	private static Random r = new Random();
 	
-	ArrayList<Naipe> naipes = new ArrayList<>();
+	protected ArrayList<Naipe> naipes;;
 	
 	public Mazo() {
-		agregarBaraja();
+		 naipes = new ArrayList<>();
 	}
 	
 	public Mazo(int barajas) {
+		this();
 		for (int i=0; i<barajas; i++)
-			agregarBaraja();
-	}
-	
-	private void agregarBaraja() {
-		for (Palo p: Palo.values())
-			for (Rango r: Rango.values())
-				naipes.add(new Naipe(p, r));
+			for (Palo p: Palo.values())
+				for (Rango r: Rango.values())
+					naipes.add(new Naipe(p, r));
 	}
 	
 	public void add(Naipe naipe) {
 		naipes.add(naipe);
 	}
 	
-	public void addAll(Mazo mazo) {
-		naipes.addAll(mazo.naipes);
-		mazo.naipes.clear();
+	public void descartar(Mazo mazo) {
+		mazo.naipes.addAll(naipes);
+		naipes.clear();
 	}
 	
 	public Naipe get() {
-		if (naipes.size() == 0)
-			return null;
-		return naipes.size() == 1 ? naipes.get(1) : naipes.get(r.nextInt(naipes.size()));
+		return naipes.get(r.nextInt(naipes.size()));
 	}
 	
 	public Naipe remove() {
-		if (naipes.size() == 0)
-			return null;
-		return naipes.size() == 1 ? naipes.remove(1) : naipes.remove(r.nextInt(naipes.size()));
+		return naipes.remove(r.nextInt(naipes.size()));
 	}
 	
+	public Naipe[] getNaipes() {
+		return (Naipe []) naipes.toArray();
+	}
 }
