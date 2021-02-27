@@ -21,14 +21,14 @@ public class BlackJack {
 		crupier.add(mazo.get());
 		jugador.add(mazo.get());
 		crupier.add(mazo.get());
-		if (jugador.blackjack() || crupier.blackjack())
-			fin = true;
+		if (jugador.valor() == 21)
+			plantarse();
 	}
 	
 	public void pedir() {
 		if (fin)
 			throw new RuntimeException("no se puede pedir");
-		jugador.add(mazo.get());
+		jugador.add(mazo.remove());
 		if (jugador.valor() >= 21) 
 			plantarse();
 	}
@@ -37,8 +37,9 @@ public class BlackJack {
 		if (fin)
 			throw new RuntimeException("no se puede plantar");
 		fin = true;
-		while (crupier.valor() < 17)
-			crupier.add(mazo.get());
+		if (jugador.valor() <= 21)
+			while (crupier.valor() < 17)
+				crupier.add(mazo.remove());
 	}
 
 	public boolean finalizado() {
@@ -51,7 +52,7 @@ public class BlackJack {
 		if (fin)
 			resultado = "Crupier: " + crupier.toString() + " = " + crupier.valor() + "\n";
 		else
-			resultado = "Crupier: " + crupier.get(0).toString() + "\n";
+			resultado = "Crupier: " + crupier.get(0).toString() + " **\n";
 		resultado += "Jugador: " + jugador.toString()  + " = " + jugador.valor() + "\n";
 		int vc = crupier.valor(); 
 		int vj = jugador.valor();
