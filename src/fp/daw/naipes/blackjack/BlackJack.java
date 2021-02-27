@@ -14,6 +14,8 @@ public class BlackJack {
 		if (!fin)
 			throw new RuntimeException("no se puede repartir");
 		fin = false;
+		if (mazo.size() <= 70)
+			descarte.descartar(mazo);
 		jugador.descartar(descarte);
 		crupier.descartar(descarte);
 		jugador.add(mazo.remove());

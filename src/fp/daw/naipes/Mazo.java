@@ -41,4 +41,8 @@ public class Mazo {
 	public Naipe[] getNaipes() {
 		return (Naipe []) naipes.toArray();
 	}
+	
+	public int size() {
+		return naipes.size();
+	}
 }
