@@ -6,8 +6,17 @@ import fp.daw.naipes.Rango;
 
 public class ManoBJ extends Mazo {
 
-	private static final long serialVersionUID = 1L;
+	private String nombre;
 	private int valor = 0;
+	
+	public ManoBJ(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
 	
 	@Override
 	public void add(Naipe naipe) {

@@ -45,4 +45,8 @@ public class Mazo {
 	public int size() {
 		return naipes.size();
 	}
+	
+	public boolean isEmpty() {
+		return naipes.isEmpty();
+	}
 }
